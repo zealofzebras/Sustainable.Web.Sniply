@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Options;
+using System.Text.RegularExpressions;
 
 namespace Sniply.TagHelpers
 {
@@ -10,10 +12,12 @@ namespace Sniply.TagHelpers
     public class SniplyTagHelper : TagHelper
     {
         private readonly LinkGenerator linkGenerator;
-        
-        public SniplyTagHelper(LinkGenerator linkGenerator)
+        private readonly string linkTarget;
+
+        public SniplyTagHelper(LinkGenerator linkGenerator, IOptionsMonitor<SniplyOptions> optionsMonitor)
         {
             this.linkGenerator = linkGenerator;
+            linkTarget = optionsMonitor.CurrentValue.LinkTarget;
         }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
@@ -24,11 +28,15 @@ namespace Sniply.TagHelpers
                 var href = linkGenerator.GetPathByPage("/Index", null, values: new
                 {
                     area = "sniply",
-                    url = context.AllAttributes["href"].Value,
+                    url = Regex.Replace(context.AllAttributes["href"].Value.ToString(), @"^http(?:(s):(\/)|:\/)\/", @"\1\2"),
                 });
 
                 //output.Attributes.Remove("external");
                 output.Attributes.SetAttribute("href", href);
+
+                if (!string.IsNullOrWhiteSpace(linkTarget))
+
+                    output.Attributes.SetAttribute("target", "_blank");
             }
         }
 

@@ -24,6 +24,21 @@ namespace Sniply.Pages
             if (RouteData.Values["url"] != null)
             {
                 var url = Uri.UnescapeDataString(RouteData.Values["url"].ToString());
+
+                if (url.StartsWith("://"))
+                    url = "https" + url;
+                else if (url.StartsWith("s/"))
+                    url = "https://" + url.Substring(2);
+                else if (!url.StartsWith("https://") && !url.StartsWith("http://"))
+                {
+                    if (url.StartsWith("http:/"))
+                        url = "http://" + url.Substring(6);
+                    else if (url.StartsWith("https:/"))
+                        url = "https://" + url.Substring(7);
+                    else
+                        url = "http://" + url;
+                }
+
                 return Redirect("https://snip.ly/external-lib-redirect/v2/?url=" + Uri.EscapeDataString(url) + "&siteid=" + options.SiteId);
             }
             else

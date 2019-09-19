@@ -19,7 +19,7 @@ namespace Sniply
         private string GetHref(string delimeter, string original) => delimeter + linkGenerator.GetPathByPage("/Index", null, values: new
         {
             area = "sniply",
-            url = original,
+            url = Regex.Replace(original, @"^http(?:(s):(\/)|:\/)\/", @"\1\2"),
         }) + delimeter;
     }
 }
