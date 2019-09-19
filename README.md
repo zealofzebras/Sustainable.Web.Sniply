@@ -57,3 +57,13 @@ The siteid can be found in your sniply dashboard.
 <script type="text/javascript" src="https://gosniply.com/site/[THISISTHESITEID].js"></script>
 ```
 
+
+## The href replacer
+
+The package includes as handy utility to replace href attributes in html. This utility must be injected via Dependency Injection as it itself depends on LinkBuilder.
+
+Just make sure to set it up in the Startup.cs like this
+
+```cs
+services.AddSingleton<Sniply.SniplyReplacer>();
+```

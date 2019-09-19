@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Sniply</RootNamespace>
+    <PackageId>Sustainable.Web.Sniply</PackageId>
+    <Authors>zeal aps</Authors>
+    <Product>Sniply TagHelper and utilities</Product>
+    <Description>Simple functions to use sniply in Asp.Net core</Description>
+    <PackageProjectUrl>https://github.com/zealofzebras/Sustainable.Web.Sniply</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/zealofzebras/Sustainable.Web.Sniply</RepositoryUrl>
+    <PackageTags>sniply mvc redirect forward url</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+  </ItemGroup>
+</Project>
