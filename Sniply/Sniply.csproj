@@ -6,11 +6,12 @@
     <PackageId>Sustainable.Web.Sniply</PackageId>
     <Authors>zeal aps</Authors>
     <Product>Sniply TagHelper and utilities</Product>
-    <Description>Simple functions to use sniply in Asp.Net core</Description>
+    <Description>Simple functions to use sniply in Asp.Net core. Sniply automatically creates a shorted url with overlay branding that fits your site so your users are still linked to your "universe" when they leave.</Description>
     <PackageProjectUrl>https://github.com/zealofzebras/Sustainable.Web.Sniply</PackageProjectUrl>
     <RepositoryUrl>https://github.com/zealofzebras/Sustainable.Web.Sniply</RepositoryUrl>
     <PackageTags>sniply mvc redirect forward url</PackageTags>
     <Version>1.0.0</Version>
+    <Copyright />
   </PropertyGroup>
 
   <ItemGroup>
