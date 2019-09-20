@@ -1,10 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Options;
-using System.Text.RegularExpressions;
 
 namespace Sniply.TagHelpers
 {
@@ -24,11 +20,10 @@ namespace Sniply.TagHelpers
         {
             if (context.AllAttributes.ContainsName("href"))
             {
-
                 var href = linkGenerator.GetPathByPage("/Index", null, values: new
                 {
                     area = "sniply",
-                    url = Regex.Replace(context.AllAttributes["href"].Value.ToString(), @"^http(?:(s):(\/)|:\/)\/", @"\1\2"),
+                    url = UrlHelper.ReplaceHttp(context.AllAttributes["href"].Value.ToString()),
                 });
 
                 //output.Attributes.Remove("external");

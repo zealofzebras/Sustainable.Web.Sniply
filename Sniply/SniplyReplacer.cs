@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Routing;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Sniply
@@ -16,10 +13,13 @@ namespace Sniply
 
         public string Replace(string content) => Regex.Replace(content, @"(?<=href=)(.)((?:(?!\1).)*)\1", m => GetHref(m.Groups[1].Value, m.Groups[2].Value));
 
-        private string GetHref(string delimeter, string original) => delimeter + linkGenerator.GetPathByPage("/Index", null, values: new
+        private string GetHref(string delimeter, string original)
         {
-            area = "sniply",
-            url = Regex.Replace(original, @"^http(?:(s):(\/)|:\/)\/", @"\1\2"),
-        }) + delimeter;
+            return delimeter + linkGenerator.GetPathByPage("/Index", null, values: new
+            {
+                area = "sniply",
+                url = UrlHelper.ReplaceHttp(original),
+            }) + delimeter;
+        }
     }
 }
