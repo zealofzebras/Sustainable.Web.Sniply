@@ -10,6 +10,7 @@
     <PackageProjectUrl>https://github.com/zealofzebras/Sustainable.Web.Sniply</PackageProjectUrl>
     <RepositoryUrl>https://github.com/zealofzebras/Sustainable.Web.Sniply</RepositoryUrl>
     <PackageTags>sniply mvc redirect forward url</PackageTags>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
