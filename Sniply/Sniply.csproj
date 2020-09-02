@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <RootNamespace>Sniply</RootNamespace>
     <PackageId>Sustainable.Web.Sniply</PackageId>
     <Authors>zeal aps</Authors>
@@ -10,11 +11,12 @@
     <PackageProjectUrl>https://github.com/zealofzebras/Sustainable.Web.Sniply</PackageProjectUrl>
     <RepositoryUrl>https://github.com/zealofzebras/Sustainable.Web.Sniply</RepositoryUrl>
     <PackageTags>sniply mvc redirect forward url</PackageTags>
-    <Version>1.0.1</Version>
+    <Version>2.0.1</Version>
     <Copyright />
   </PropertyGroup>
-
+  
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
+
 </Project>

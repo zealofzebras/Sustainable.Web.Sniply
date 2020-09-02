@@ -13,6 +13,7 @@ namespace Sniply.Pages
         public IndexModel(IOptionsMonitor<SniplyOptions> optionsMonitor)
         {
             this.options = optionsMonitor.CurrentValue;
+            
         }
 
         public IActionResult OnGet()
